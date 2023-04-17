@@ -11,28 +11,53 @@ class MiddleViewController: UIViewController {
 
     @IBOutlet var nothingHasHappenedLabel: UILabel!
     
-    var eventError: Int = 1
-    var eventNumber = nil
-    func addEvent(from: String) {
-        if let existingText = nothingHasHappenedLabel.text {
-            nothingHasHappenedLabel.text = "\(existingText)\nEvent number \(eventNumber) was \(from)"
+    var eventNumber: Int = 1
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let actualText = nothingHasHappenedLabel.text {
+            nothingHasHappenedLabel.text = "\(actualText)\nEvent Number \(eventNumber) is viewDidLoad"
+            eventNumber += 1
+            
+        }
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let actualText = nothingHasHappenedLabel.text{
+            nothingHasHappenedLabel.text = "\(actualText)\nEvent number \(eventNumber) is viewWillApperar"
             eventNumber += 1
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let actualText = nothingHasHappenedLabel.text {
+            nothingHasHappenedLabel.text = "\(actualText)\nEvent number \(eventNumber) is viewDidAppear"
+            eventNumber += 1
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let actualText = nothingHasHappenedLabel.text {
+            nothingHasHappenedLabel.text = "\(actualText)\nEvent number \(eventNumber) is viewWillDisappear"
+            eventNumber += 1
+        }
     }
-    */
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if let actualText = nothingHasHappenedLabel.text {
+            nothingHasHappenedLabel.text = "\(actualText)\nEvent number \(eventNumber) is viewDidDisappear"
+            eventNumber += 1
+        }
+    }
 
+    
 }
